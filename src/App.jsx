@@ -4,36 +4,43 @@ import Header2 from "./components/header/Header2";
 import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Hero from "./components/hero/Hero";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Main from "./components/main/Main";
 function App() {
   const [theme, colorMode] = useMode();
 
   return (
-    <ColorModeContext.Provider
-      // @ts-ignore
-      value={colorMode}
-    >
-      <ThemeProvider
+    <BrowserRouter>
+      <ColorModeContext.Provider
         // @ts-ignore
-        theme={theme}
+        value={colorMode}
       >
-        <CssBaseline />
-        <Header1 />
-        <Header2 />
-        <Header3 />
-
-        <Box
-          bgcolor={
-            // @ts-ignore
-            theme.palette.myBg.main
-          }
+        <ThemeProvider
+          // @ts-ignore
+          theme={theme}
         >
-          <Hero />
-          <Main />
-        </Box>
-      </ThemeProvider>
-    </ColorModeContext.Provider>
+          <CssBaseline />
+          <Header1 />
+          <Header2 />
+          <Header3 />
+
+          <Box
+            bgcolor={
+              // @ts-ignore
+              theme.palette.myBg.main
+            }
+          >
+            <Hero />
+            <Main />
+          </Box>
+
+          <Routes>
+            <Route path="/" element />
+          </Routes>
+        </ThemeProvider>
+      </ColorModeContext.Provider>
+    </BrowserRouter>
   );
 }
 

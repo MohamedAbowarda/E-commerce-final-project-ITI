@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
-import { styled, alpha } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import PersonIcon from "@mui/icons-material/Person";
 import List from "@mui/material/List";
@@ -25,7 +25,7 @@ const Search = styled("div")(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   border: "1px solid #777",
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    border: "1px solid #333",
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
@@ -73,7 +73,7 @@ const options = ["All Categories", "CAR", "Clothes", "Electronics"];
 function Header2() {
   // @ts-ignore
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(1);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const open = Boolean(anchorEl);
 
   const handleClickListItem = (event) => {
@@ -130,7 +130,6 @@ function Header2() {
               onClick={handleClickListItem}
             >
               <ListItemText
-                className="border"
                 sx={{
                   width: 110,
                   textAlign: "center",
